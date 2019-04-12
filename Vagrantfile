@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -68,18 +68,25 @@ Vagrant.configure("2") do |config|
     apt-get update
     apt-get install -y ruby2.4 ruby2.4-dev
     apt-get install -y python-pip
+    pip install --upgrade pip
     pip install -U setuptools
     pip install virtualenv --upgrade
     apt-get install -y build-essential libssl-dev libffi-dev python-dev
     pip install testinfra
     pip install pytest-logging
     #pip install paramiko
-    gem install 'test-kitchen' 'kitchen-salt' 'kitchen-vagrant'
+    gem install 'test-kitchen' 'kitchen-salt' 'kitchen-vagrant' 'kitchen-docker'
     #apt-get install -y virtualbox unzip
     #if [ ! -f /usr/local/bin/vagrant ]
     #then
       #wget https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_linux_amd64.zip -P ~/vagrant
       #unzip ~/vagrant/vagrant_2.2.4_linux_amd64.zip -d /usr/local/bin
     #fi
+
+    apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    apt-get install -y docker-ce
+
   SHELL
 end
