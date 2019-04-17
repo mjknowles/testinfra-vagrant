@@ -3,7 +3,7 @@ driver:
   name: docker
 
 platforms:
-  - name: debian
+  - name: ubuntu
 
 provisioner:
   name: salt_solo
