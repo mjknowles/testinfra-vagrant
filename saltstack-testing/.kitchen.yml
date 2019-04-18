@@ -4,6 +4,7 @@ driver:
 
 platforms:
   - name: ubuntu
+  # - name: windows
 
 provisioner:
   name: salt_solo
@@ -20,3 +21,9 @@ suites:
     verifier:
       name: shell
       command: py.test -v test/base
+  # - name: ad
+  #   verifier:
+  #     name: shell
+  #     command: py.test -v test/ad
+  #   includes:
+  #     - windows
