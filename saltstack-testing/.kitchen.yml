@@ -3,10 +3,7 @@ driver:
   name: docker
 
 platforms:
-  - name: ubuntu
-    lifecycle:
-      pre_verify:
-        - remote: sudo apt-get -y install pytest
+  - name: ubuntu-xenial
 #  - name: windows
 
 provisioner:
@@ -23,10 +20,12 @@ suites:
   - name: base
     verifier:
       name: shell
-      command: py.test -v test/base
+      command: >
+        py.test -v test/base
   # - name: ad
   #   verifier:
   #     name: shell
-  #     command: py.test -v test/ad
+  #     command: >
+  #       py.test -v test/ad
   #   includes:
   #     - windows

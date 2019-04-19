@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
     pip install -U setuptools
     pip install virtualenv --upgrade
     apt-get install -y build-essential libssl-dev libffi-dev python-dev
-    pip install -U testinfra pytest pytest-logging paramiko
+    sudo pip install -U testinfra pytest pytest-logging paramiko
     gem install 'test-kitchen' 'kitchen-salt' 'kitchen-docker'
 
     apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
