@@ -4,7 +4,10 @@ driver:
 
 platforms:
   - name: ubuntu
-  # - name: windows
+    lifecycle:
+      pre_verify:
+        - remote: sudo apt-get -y install pytest
+#  - name: windows
 
 provisioner:
   name: salt_solo
